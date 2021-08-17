@@ -1,0 +1,17 @@
+.hardware-pane .title {
+    position: static;
+    width: 127px;
+    height: 36px;
+    left: 16px;
+    top: 22px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 36px;letter-spacing: -0.03em;
+    color: #7B818A;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 20px;
+}
