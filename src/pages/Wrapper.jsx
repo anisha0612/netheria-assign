@@ -7,9 +7,9 @@ import "./Wrapper.css";
 const Octomize = () => {
   return (
     <div className='Wrapper'>
-      <sidebar className='sidebar'>
+      <div className='sidebar'>
         <img src={Sidebar} alt='Logo' />
-      </sidebar>
+      </div>
       <div className='Content'>
         <h1 className='heading'>Shufflenet-v2.onnx</h1>
         <h2 className='form-title'>Created three days ago by Mike Johnson</h2>
