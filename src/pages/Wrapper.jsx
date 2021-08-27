@@ -4,7 +4,7 @@ import HardwarePane from "../components/HardwarePane/HardwarePane.jsx";
 import TotalRunsPane from "../components/TotalRunsPane/TotalRunsPane.jsx";
 import "./Wrapper.css";
 
-const Octomize = () => {
+const Wrapper = () => {
   return (
     <div className='Wrapper'>
       <div className='sidebar'>
@@ -20,4 +20,4 @@ const Octomize = () => {
   );
 };
 
-export default Octomize;
+export default Wrapper;

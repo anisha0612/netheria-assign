@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
+import Dropdown from "./Dropdown/Dropdown.jsx";
+import DataContext from "../Context/DataContext";
 
 const SelectHardware = () => {
-  return <div className='select-hardware'></div>;
+  const {
+    providerOptions,
+    availableInstances,
+    isDisabled,
+    setIsDisabled,
+    selectedInstance,
+    vcpu,
+    memory,
+  } = useContext(DataContext);
+
+  console.log(availableInstances, selectedInstance);
+
+  return (
+    <div className='select-hardware'>
+      <Dropdown providerOptions={providerOptions} />
+      <Dropdown
+        isDisabled={isDisabled}
+        setIsDisabled={setIsDisabled}
+        availableInstances={availableInstances}
+      />
+
+      <div className={vcpu !== 0 ? `text-dark` : `text-grey`}>{vcpu}</div>
+      <div className={memory !== 0 ? `text-dark` : `text-grey`}>{memory}</div>
+    </div>
+  );
 };
 
 export default SelectHardware;

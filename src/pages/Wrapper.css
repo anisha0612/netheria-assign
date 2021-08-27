@@ -60,10 +60,11 @@ align-items: center;
 .Content .total-runs-pane{
     position: absolute;
     width: 287px;
-    height: 163px;
+    /* height: 163px; */
     left: 1095px;
     top: 206px;
     box-shadow: 0px 2px 8px rgba(46, 50, 56, 0.04),
     0px 8px 24px rgba(46, 50, 56, 0.08);
     border-radius: 8px;
+    padding: 1em;
 }
