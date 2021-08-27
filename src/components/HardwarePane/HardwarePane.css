@@ -12,52 +12,14 @@
     margin: 20px;
 }
 
-.hardware-pane .box{
-    margin: 10px  ;
-    padding: 0 16px;
-    width: 843px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    border: 1px solid #D1D5DB;
-    box-sizing: border-box;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 6px;
-    text-align: start;
-   
 
-}
-
-
-#checkbox{
-
-    width: 16px;
-    height: 16px;
-    border: 1px solid #D1D5DB !important;
-    border-radius: 4px;
-
-}
-
-.box .text{
-    width: 743px;
-   
-}
-.box .text .bold{
-    font-weight: bold;
-}
-.box .text p{
-    font-size: 14px;
-    line-height: 8px;
-    color: #111827;
-    padding:0 15px;
-
-}
 .section{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 16px;
+    /* padding: 10px 16px; */
+    margin: 1.5em;
 }
 
 .hardware-target{
@@ -65,6 +27,8 @@
     font-size: 16px;
     line-height: 24px;
     color: #7B818A;
+    padding-top:0.5em;
+    
 }
 
 .button{
@@ -81,7 +45,7 @@
 
 .table{
     display:grid;
-    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-columns: 256px 256px 150px 256px;
     grid-template-rows: 32px;
     text-align: start;
     padding-left: 25px;
@@ -101,8 +65,60 @@
 }
 
 .select-hardware{
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 16px;
+    padding: 16px; */
+    display:grid;
+    grid-template-columns: 256px 256px 150px 256px;
+    grid-template-rows: 32px;
+    text-align: start;
+    padding-left: 22px;
+  
+}
+
+.dropdown {
+    width: 230px;
+    height: 38px;
+    left: 0px;
+    top: 0px;
+    border: 1px solid #D1D5DB;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    text-align: left;
+    /* padding: 6px 10px 0; */
+   background: #FFFFFF;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 14px;
+   line-height: 20px;
+}
+
+.active{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0px;
+  width: 256px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+   0px 4px 6px -2px rgba(0, 0, 0, 0.05),
+   0px 0px 0px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+}
+
+.active-list{
+    border: none;
+    background: #FFFFFF;
+    position: static;
+    left: 12px;
+    top: 8px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.inactive{
+    display: none;
 }
