@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Dropdown from "./Dropdown/Dropdown.jsx";
 import DataContext from "../Context/DataContext";
 
+// Component which has dropdown actions for hardware actions in Hardware Pane
 const SelectHardware = () => {
   const {
     providerOptions,
@@ -12,8 +13,6 @@ const SelectHardware = () => {
     vcpu,
     memory,
   } = useContext(DataContext);
-
-  console.log(availableInstances, selectedInstance);
 
   return (
     <div className='select-hardware'>

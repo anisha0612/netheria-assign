@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useRef } from "react";
 
 const DataContext = createContext();
 
@@ -7,7 +7,6 @@ export const DataProvider = (props) => {
   // Hardware Pane
   const [hardwareData, setHardwareData] = useState([]);
   const [checkedPane, setCheckedPane] = useState([]);
-  // const [dropdownMenu, setDropdownMenu] = useState([]);
   const [selectedProvider, setSelectedProvider] = useState("Select Provider");
   const [selectedInstance, setSelectedInstance] = useState("Select Instance");
   const [availableInstances, setInstances] = useState([]);
@@ -15,9 +14,9 @@ export const DataProvider = (props) => {
   const [newHardware, setNewHardware] = useState({});
 
   const providerOptions = [
-    { id: 1, provider: "AWS", name: "Amazon Web Services" },
-    { id: 2, provider: "GCP", name: "Google Cloud" },
-    { id: 3, provider: "Azure", name: "Microsoft Azure" },
+    { id: 4, provider: "AWS", name: "Amazon Web Services" },
+    { id: 10, provider: "GCP", name: "Google Cloud" },
+    { id: 8, provider: "Azure", name: "Microsoft Azure" },
   ];
 
   // fetch provider from selected provider
@@ -34,6 +33,7 @@ export const DataProvider = (props) => {
   const [totalRuns, setTotalRuns] = useState(0);
   const [isAddClicked, setIsAddClicked] = useState(false);
   const [hardwareActions, setHardwareActions] = useState([]);
+  const actionsId = useRef(1);
 
   // dropdown is disabled
   const [isDisabled, setIsDisabled] = useState(true);
@@ -41,15 +41,24 @@ export const DataProvider = (props) => {
   // handle click for ADD button when you add instances and provider for increase Total runs
   const handleAdd = () => {
     setIsAddClicked(true);
-    console.log(newHardware);
-    setHardwareActions([...hardwareActions, newHardware]);
-    console.log(hardwareActions);
+    setHardwareActions((prevActions) => [...prevActions, newHardware]);
     setTotalRuns(totalRuns + 1);
     setSelectedProvider("Select Provider");
     setSelectedInstance("Select Instance");
     setInstances([]);
     setVcpu(0);
     setMemory(0);
+  };
+
+  // handle click for octomize button
+  const handleOctomize = () => {
+    const postAPI = {
+      checkedPane: checkedPane,
+      totalRuns: totalRuns,
+      hardwareActions: hardwareActions,
+    };
+    console.log(postAPI);
+    return postAPI;
   };
 
   // Fetch hardware providers from API
@@ -86,6 +95,14 @@ export const DataProvider = (props) => {
 
     fetchAPI();
     // update cpu and memory values on instance selection
+
+    return () => {
+      flag = false;
+    };
+  }, [selectedProvider]);
+
+  // useEffect to take care other actions
+  useEffect(() => {
     const updateCpuAndMemory = () => {
       if (selectedInstance !== "Select Instance") {
         const cpuValue = availableInstances.filter((instance) => {
@@ -103,19 +120,16 @@ export const DataProvider = (props) => {
           setVcpu(cpuValue[0].cpu);
           setMemory(memoryValue[0].memory);
           setNewHardware({
-            id: hardwareActions.length + 1,
+            id: actionsId.current++,
             instance: selectedInstance,
-            cpu: vcpu,
+            cpu: cpuValue[0].cpu,
+            count: 1,
           });
         }
       }
     };
     updateCpuAndMemory();
-
-    return () => {
-      flag = false;
-    };
-  }, [selectedProvider, selectedInstance, handleAdd]);
+  }, [selectedInstance, hardwareActions, totalRuns]);
 
   return (
     <DataContext.Provider
@@ -139,6 +153,8 @@ export const DataProvider = (props) => {
         isDisabled,
         setIsDisabled,
         handleAdd,
+        hardwareActions,
+        handleOctomize,
       }}>
       {props.children}
     </DataContext.Provider>
