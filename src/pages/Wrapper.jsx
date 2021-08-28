@@ -4,6 +4,8 @@ import HardwarePane from "../components/HardwarePane/HardwarePane.jsx";
 import TotalRunsPane from "../components/TotalRunsPane/TotalRunsPane.jsx";
 import "./Wrapper.css";
 
+// Wrapper Component which is the parent for sidebar, Hardware pane and Total runs Pane
+
 const Wrapper = () => {
   return (
     <div className='Wrapper'>

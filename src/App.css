@@ -21,3 +21,12 @@ body{
 .text-green{
     color: #4DB396;
 }
+.active-button{
+  background: #0180FF;
+  color:#FFFFFF;
+  cursor: pointer;
+}
+.inactive-button{
+  color: #ADAFB3;
+  background: #D0D1D2;
+}

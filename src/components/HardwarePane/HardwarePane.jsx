@@ -6,9 +6,10 @@ import SelectHardware from "../SelectHardware.jsx";
 import DataContext from "../../Context/DataContext.js";
 import "./HardwarePane.css";
 
+// Parent Hardware Target Pane which has all the children components
+
 const HardwarePane = () => {
-  const { handleAdd, hardwareActions } = useContext(DataContext);
-  console.log(hardwareActions);
+  const { handleAdd } = useContext(DataContext);
   return (
     <div className='hardware-pane'>
       <h1 className='title'>Octomize</h1>
@@ -19,7 +20,7 @@ const HardwarePane = () => {
       </div>
       <div className='section'>
         <p className='hardware-target'>Hardware Targets</p>
-        <button className='button' onClick={handleAdd}>
+        <button className='button active-button' onClick={handleAdd}>
           Add
         </button>
       </div>
