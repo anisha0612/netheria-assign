@@ -38,6 +38,9 @@ export const DataProvider = (props) => {
   // dropdown is disabled
   const [isDisabled, setIsDisabled] = useState(true);
 
+  // post to API
+  const [postAPI, setPostAPI] = useState({});
+
   // handle click for ADD button when you add instances and provider for increase Total runs
   const handleAdd = () => {
     setIsAddClicked(true);
@@ -52,13 +55,14 @@ export const DataProvider = (props) => {
 
   // handle click for octomize button
   const handleOctomize = () => {
-    const postAPI = {
+    const newAPI = {
       checkedPane: checkedPane,
       totalRuns: totalRuns,
       hardwareActions: hardwareActions,
     };
+
+    setPostAPI(newAPI);
     console.log(postAPI);
-    return postAPI;
   };
 
   // Fetch hardware providers from API
