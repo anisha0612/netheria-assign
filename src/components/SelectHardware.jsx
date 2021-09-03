@@ -9,7 +9,7 @@ const SelectHardware = () => {
     availableInstances,
     isDisabled,
     setIsDisabled,
-    selectedInstance,
+    // selectedInstance,
     vcpu,
     memory,
   } = useContext(DataContext);
